@@ -7,7 +7,7 @@ info:
     name: VAC Team
     url: https://forum.vac.dev/
   servers:
-    - url: http://localhost:8545
+    - url: http://127.0.0.1:8645
       description: Accessing your wakunode via API is possible normally via localhost on defaul port 8545.
 tags:
   - name: admin
