@@ -174,16 +174,16 @@ StoreResponse:
 HistoryCursor:
   type: object
   properties:
-    pubsub_topic:
+    pubsubTopic:
       type: string
-    sender_time:
+    senderTime:
       type: string
-    store_time:
+    storeTime:
       type: string
     digest:
       type: string
     required:
-      - pubsub_topic
-      - sender_time
-      - store_time
+      - pubsubTopic
+      - senderTime
+      - storeTime
       - digest
