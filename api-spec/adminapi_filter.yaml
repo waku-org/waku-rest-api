@@ -1,0 +1,19 @@
+get:
+  summary: Get filter protocol subscribers
+  description: Retrieve information about the serving filter subscriptions
+  operationId: getFilterInfo
+  tags:
+    - admin
+  responses:
+    '200':
+      description: Information about subscribed filter peers and topics
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "./schemas/apitypes.yaml#/FilterSubscription"
+    '400':
+      description: Filter Protocol is not mounted to the node
+    '5XX':
+      description: Unexpected error.

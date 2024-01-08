@@ -29,6 +29,8 @@ tags:
 paths:
   /admin/v1/peers:
     $ref: "./adminapi.yaml"
+  /admin/v1/filter/subscriptions:
+    $ref: "./adminapi_filter.yaml"
   /debug/v1/info:
      $ref: "./debugapi_info.yaml"
   /debug/v1/version:

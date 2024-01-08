@@ -187,3 +187,24 @@ HistoryCursor:
       - senderTime
       - storeTime
       - digest
+
+FilterSubscription:
+  type: object
+  required:
+    - peerId
+    - filterCriteria
+  properties:
+    peerId:
+      type: string
+    filterCriteria:
+      type: array
+      items:
+        type: object
+        required:
+          - pubsubTopic
+          - contentTopic
+        properties:
+          pubsubTopic:
+            type: string
+          contentTopic:
+            type: string
