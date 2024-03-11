@@ -12,7 +12,6 @@ get:
       in: query
       schema:
         type: string
-      required: true
       description: >
         P2P fully qualified peer multiaddress
         in the format `(ip4|ip6)/tcp/p2p/$peerId` and URL-encoded.
