@@ -118,6 +118,9 @@ WakuMessage:
       format: int64
     ephemeral:
       type: boolean
+    meta:
+      type: string
+      format: byte
   required:
       - payload
       - contentTopic
@@ -146,6 +149,11 @@ RelayWakuMessage:
       type: number
     timestamp:
       type: number
+    ephemeral:
+      type: boolean
+    meta:
+      type: string
+      format: byte
   required:
     - payload
 
