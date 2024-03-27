@@ -128,7 +128,7 @@ WakuMessage:
 PushRequest:
   type: object
   properties:
-    pusbsubTopic:
+    pubsubTopic:
       $ref: '#/PubsubTopic'
     message:
       $ref: '#/WakuMessage'
