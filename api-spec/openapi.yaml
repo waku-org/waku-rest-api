@@ -21,6 +21,8 @@ tags:
   - name: relay
     description: Control of the relaying of messages. See [11/WAKU2-RELAY](https://rfc.vac.dev/spec/11/) RFC
   - name: store
+    description: Retrieve the message history. #TODO See [13/WAKU2-STORE]() RFC
+  - name: legacy_store
     description: Retrieve the message history. See [13/WAKU2-STORE](https://rfc.vac.dev/spec/13/) RFC
   - name: filter
     description: Control of the content filtering. See [12/WAKU2-FILTER](https://rfc.vac.dev/spec/12/) RFC
@@ -50,6 +52,8 @@ paths:
   /relay/v1/auto/subscriptions:
     $ref: "./relayapi_auto_subscriptions.yaml"
   /store/v1/messages:
+    $ref: "./legacystoreapi.yaml"
+  /store/v3/messages:
     $ref: "./storeapi.yaml"
   /filter/v1/subscriptions:
     $ref: "./filterapi_v1_subscriptions.yaml"
