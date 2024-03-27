@@ -118,12 +118,48 @@ WakuMessage:
       format: int64
     ephemeral:
       type: boolean
+    proof:
+      type: string
     meta:
       type: string
       format: byte
   required:
       - payload
       - contentTopic
+      - timestamp
+
+WakuMessageKeyValue:
+  type: object
+  properties:
+    message_hash:
+      type: string
+    message:
+      $ref: '#/components/schemas/WakuMessage'
+  required:
+    - message_hash
+    - message
+
+StoreQueryResponse:
+  type: object
+  properties:
+    request_id:
+      type: string
+    status_code:
+      type: integer
+      format: uint32
+    status_desc:
+      type: string
+    messages:
+      type: array
+      items:
+        $ref: '#/components/schemas/WakuMessageKeyValue'
+    pagination_cursor:
+      type: string
+  required:
+    - request_id
+    - status_code
+    - status_desc
+    - messages
 
 PushRequest:
   type: object

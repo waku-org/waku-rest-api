@@ -1,33 +1,21 @@
-# /store/v3/messages:
+# /store/v1/messages:
 get:
   summary: Gets message history
   description: >
-    Retrieves Waku message history. The returned history
+    Retrieves WakuV2 message history. The returned history
     can be potentially filtered by optional request parameters.
   operationId: getMessageHistory
   tags:
-    - store
+    - legacy_store
   parameters:
     - name: peerAddr
       in: query
       schema:
         type: string
-      required: true
       description: >
         P2P fully qualified peer multiaddress
         in the format `(ip4|ip6)/tcp/p2p/$peerId` and URL-encoded.
       example: '%2Fip4%2F127.0.0.1%2Ftcp%2F60001%2Fp2p%2F16Uiu2HAmVFXtAfSj4EiR7mL2KvL4EE2wztuQgUSBoj2Jx2KeXFLN'
-
-    - name: includeData
-      in: query
-      schema:
-        type: string
-      description: >
-        Boolean indicating if the query should return messages (data) or hashes only.
-        A value of 'false' returns hashes only.
-        A value of 'true' returns hashes AND messages.
-        Default value is 'false'
-      example: 'true'
 
     - name: pubsubTopic
       in: query
@@ -72,23 +60,38 @@ get:
         integer value.
       example: '1680590945000000000'
 
-    - name: hashes
-      in: query
-      schema:
-        type: string
-      description: >
-        Comma-separated list of message hashes.
-        URL-base64-encoded string computed as a hash of messages.
-        Used to find messages by hash.
-      example: 'Gc4ACThW5t2QQO82huq3WnDv%2FapPPJpD%2FwJfxDxAnR0%3D'
-
-    - name: cursor
+    - name: senderTime
       in: query
       schema:
         type: string
       description: >
         Cursor field intended for pagination purposes.
-        URL-base64-encoded string computed as a hash of a message.
+        Represents the Unix time in nanoseconds at which a message was generated.
+        It could be empty for retrieving the first page,
+        and will be returned from the GET response so that
+        it can be part of the next page request.
+      example: '1680590947000000000'
+
+    - name: storeTime
+      in: query
+      schema:
+        type: string
+      description: >
+        Cursor field intended for pagination purposes.
+        Represents the Unix time in nanoseconds at which a message was stored.
+        It could be empty for retrieving the first page,
+        and will be returned from the GET response so that
+        it can be part of the next page request.
+      example: '1680590945000000000'
+
+    - name: digest
+      in: query
+      schema:
+        type: string
+      description: >
+        Cursor field intended for pagination purposes.
+        URL-base64-encoded string computed as a hash of the
+        a message content topic plus a message payload.
         It could be empty for retrieving the first page,
         and will be returned from the GET response so that
         it can be part of the next page request.
@@ -107,17 +110,16 @@ get:
       schema:
         type: string
       description: >
-        "true" for paging forward, "false" for paging backward.
-        If not specified or if specified with an invalid value, the default is "true".
+        "true" for paging forward, "false" for paging backward
       example: "true"
 
   responses:
     '200':
-      description: Waku message history.
+      description: WakuV2 message history.
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/StoreQueryResponse'
+            $ref: './schemas/apitypes.yaml#/StoreResponse'
     '400':
       description: Bad request error.
       content:
