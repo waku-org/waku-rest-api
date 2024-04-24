@@ -252,3 +252,26 @@ FilterSubscription:
             type: string
           contentTopic:
             type: string
+
+HealthStatus:
+  type: string
+  enum:
+    - "Initializing"
+    - "Synchronizing"
+    - "Ready"
+    - "Not Ready"
+    - "Not Mounted"
+    - "Shutting Down"
+
+HealthReport:
+  type: object
+  properties:
+    nodeHealth:
+      $ref: '#/HealthStatus'
+      description: Overall health status of the node
+    protocolsHealth:
+      type: array
+      items:
+        type: object
+        additionalProperties:
+          $ref: '#/HealthStatus'
