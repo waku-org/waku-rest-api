@@ -131,34 +131,34 @@ WakuMessage:
 WakuMessageKeyValue:
   type: object
   properties:
-    message_hash:
+    messageHash:
       type: string
     message:
       $ref: '#/components/schemas/WakuMessage'
   required:
-    - message_hash
+    - messageHash
     - message
 
 StoreQueryResponse:
   type: object
   properties:
-    request_id:
+    requestId:
       type: string
-    status_code:
+    statusCode:
       type: integer
       format: uint32
-    status_desc:
+    statusDesc:
       type: string
     messages:
       type: array
       items:
         $ref: '#/components/schemas/WakuMessageKeyValue'
-    pagination_cursor:
+    paginationCursor:
       type: string
   required:
-    - request_id
-    - status_code
-    - status_desc
+    - requestId
+    - statusCode
+    - statusDesc
     - messages
 
 PushRequest:
@@ -210,7 +210,7 @@ StoreResponse:
         $ref: '#/WakuMessage'
     cursor:
       $ref: '#/HistoryCursor'
-    error_message:
+    errorMessage:
       type: string
   required:
     - messages
