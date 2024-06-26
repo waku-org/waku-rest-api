@@ -18,6 +18,8 @@ WakuPeer:
             type: string
           connected:
             type: boolean
+    origin:
+      type: string
 
 WakuInfo:
   type: object
