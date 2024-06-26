@@ -3,6 +3,7 @@ WakuPeer:
   required:
     - multiaddr
     - protocols
+    - origin
   properties:
     multiaddr:
       type: string
