@@ -1,7 +1,7 @@
 # /relay/v1/auto/messages/{contentTopic}:  # Note the plural in messages
 get: # get_waku_v2_relay_v1_auto_messages
   summary: Get the latest messages on the polled topic
-  description: Get a list of messages that were received on a subscribed Content topic after the last time this method was called.
+  description: Get a list of messages that were received on a subscribed Content topic after the last time this method was called. Messages are selected from the last 50 messages received by the node.
   operationId: getMessagesByTopic
   tags:
     - relay
