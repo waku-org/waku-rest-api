@@ -1,7 +1,7 @@
 # /filter/v2/messages/{contentTopic}:
 get: # get_waku_v2_filter_v2_messages
   summary: Get the latest messages on the polled content topic
-  description: Get a list of messages that were received on a subscribed content topic after the last time this method was called.
+  description: Get a list of messages that were received on a subscribed content topic after the last time this method was called. Messages are selected from the last 50 messages received by the node.
   operationId: getMessagesByTopic
   tags:
     - filter
