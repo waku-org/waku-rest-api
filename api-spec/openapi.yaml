@@ -40,7 +40,9 @@ paths:
   /health:
     $ref: "./healthapi.yaml"
   /lightpush/v1/message:
-    $ref: "./lightpushapi.yaml"
+    $ref: "./lightpushapi_legacy.yaml"
+  /lightpush/v3/message:
+    $ref: "./lightpushapi_v3.yaml"
   /relay/v1/messages/{pubsubTopic}:
     $ref: "./relayapi_messages.yaml"
   /relay/v1/subscriptions:

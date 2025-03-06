@@ -1,6 +1,6 @@
 post:
-  summary: Request a message relay from a LightPush service provider
-  description: Push a message to be relayed on a PubSub topic.
+  summary: Request a message relay from a `Legacy` LightPush service provider
+  description: Push a message to be relayed on a PubSub topic. Notice this version of the /lightpush endpoint will be depricated.
   operationId: postMessagesToPubsubTopic
   tags:
     - lightpush

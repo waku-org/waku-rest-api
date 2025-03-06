@@ -145,23 +145,23 @@ WakuMessageKeyValue:
 StoreQueryResponse:
   type: object
   properties:
-    request_id:
+    requestId:
       type: string
-    status_code:
+    statusCode:
       type: integer
       format: uint32
-    status_desc:
+    statusDesc:
       type: string
     messages:
       type: array
       items:
         $ref: '#/components/schemas/WakuMessageKeyValue'
-    pagination_cursor:
+    paginationCursor:
       type: string
   required:
-    - request_id
-    - status_code
-    - status_desc
+    - requestId
+    - statusCode
+    - statusDesc
     - messages
 
 PushRequest:
@@ -174,6 +174,16 @@ PushRequest:
   required:
     - message
 
+PushResponse:
+  type: object
+  properties:
+    statusDesc: 
+      type: string
+    relayPeerCount: 
+      type: integer
+      format: uint32
+
+    
 ## TODO: Check if it can be tunneled into the one WakuMessage structure
 ##       mainly because of Relay post message request can break in client code
 RelayWakuMessage:
