@@ -57,10 +57,6 @@ paths:
     $ref: "./legacystoreapi.yaml"
   /store/v3/messages:
     $ref: "./storeapi.yaml"
-  /filter/v1/subscriptions:
-    $ref: "./filterapi_v1_subscriptions.yaml"
-  /filter/v1/messages/{contentTopic}:
-    $ref: "./filterapi_v1_messages.yaml"
   /filter/v2/subscriptions/{requestId}:
     $ref: "./filterapi_v2_subscription_ping.yaml"
   /filter/v2/subscriptions:
