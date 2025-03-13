@@ -39,18 +39,6 @@ PubsubTopic:
 ContentTopic:
   type: string
 
-FilterLegacySubscribeRequest:
-  type: object
-  properties:
-    contentFilters:
-      type: array
-      items:
-        $ref: '#/ContentTopic'
-    pubsubTopic:
-      $ref: "#/PubsubTopic"
-  required:
-    -  contentFilters
-
 FilterGetMessagesResponse:
   type: array
   items:
