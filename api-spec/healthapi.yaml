@@ -1,17 +1,16 @@
 get:
   summary: Get node health status
-  description: Retrieve readiness of a Waku v2 node.
+  description: Retrieve status of a Waku v2 node.
   operationId: healthcheck
   tags:
     - health
   responses:
     '200':
-      description: Waku v2 node is up and running.
+      description: Health report of a Waku v2 node and its protocols.
       content:
-        text/plain:
-            schema:
-              type: string
-              example: Node is healty
+        application/json:
+          schema:
+            $ref: "./schemas/apitypes.yaml#/HealthReport"              
     '500':
       description: Internal server error
       content:
