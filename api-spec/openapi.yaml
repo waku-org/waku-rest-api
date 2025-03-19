@@ -29,6 +29,12 @@ tags:
   - name: filter_legacy
     description: Obsolate Filter interface kept for compatibility reason. Will be removed in future.
 paths:
+  /health:
+    $ref: "./healthapi.yaml"
+  /info:
+     $ref: "./debugapi_info.yaml"
+  /version:
+     $ref: "./debugapi_version.yaml"
   /admin/v1/peers:
     $ref: "./adminapi.yaml"
   /admin/v1/filter/subscriptions:
@@ -37,8 +43,6 @@ paths:
      $ref: "./debugapi_info.yaml"
   /debug/v1/version:
      $ref: "./debugapi_version.yaml"
-  /health:
-    $ref: "./healthapi.yaml"
   /lightpush/v1/message:
     $ref: "./lightpushapi_legacy.yaml"
   /lightpush/v3/message:
