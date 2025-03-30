@@ -122,12 +122,12 @@ WakuMessage:
 WakuMessageKeyValue:
   type: object
   properties:
-    message_hash:
+    messageHash:
       type: string
     message:
       $ref: '#/components/schemas/WakuMessage'
   required:
-    - message_hash
+    - messageHash
     - message
 
 StoreQueryResponse:
@@ -211,7 +211,7 @@ StoreResponse:
         $ref: '#/WakuMessage'
     cursor:
       $ref: '#/HistoryCursor'
-    error_message:
+    errorMessage:
       type: string
   required:
     - messages
