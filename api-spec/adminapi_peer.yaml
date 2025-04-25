@@ -1,6 +1,6 @@
 get:
-  summary: Get connected peers info
-  description: Retrieve information about connected peers.
+  summary: Get peer info about a single peer
+  description: Retrieve information about a single peer.
   operationId: getPeerInfo
   tags:
     - admin
