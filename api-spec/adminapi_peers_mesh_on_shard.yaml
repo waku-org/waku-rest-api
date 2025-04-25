@@ -14,7 +14,7 @@ get:
       description: ID of the shard to retrieve information for
   responses:
     '200':
-      description: Successful service peers response
+      description: List of peers in the mesh of the shard in question
       content:
         application/json:
           schema:
