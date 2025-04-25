@@ -13,8 +13,11 @@ get:
             type: array
             items:
               $ref: "./schemas/apitypes.yaml#/WakuPeer"
-    '5XX':
-      description: Unexpected error.
+    '500':
+      description: Internal server error.
+      content:
+        text/plain:
+          type: string
 post:
   summary: Adds new peer(s) to connect with
   description: Adds new peer(s) to connect with.
@@ -33,5 +36,11 @@ post:
       description: Ok
     '400':
       description: Cannot connect to one or more peers.
+      content:
+        text/plain:
+          type: string
     '5XX':
       description: Unexpected error.
+      content:
+        text/plain:
+          type: string
