@@ -1,12 +1,12 @@
 get:
-  summary: Get connected peers info
-  description: Retrieve information about connected peers.
+  summary: Get peer info about all peers
+  description: Retrieve information about all peers.
   operationId: getPeerInfo
   tags:
     - admin
   responses:
     '200':
-      description: Information about a Waku v2 node.
+      description: List of peer info about all peers in peer storage of the node.
       content:
         application/json:
           schema:
