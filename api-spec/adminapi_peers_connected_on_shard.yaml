@@ -1,0 +1,33 @@
+get:
+  tags:
+    - admin
+  summary: Get peers by service
+  description: Returns information about connected peers for a specific shard.
+  operationId: getConnectedPeersByShard
+  parameters:
+    - in: path
+      name: shardId
+      required: true
+      schema:
+        type: integer
+        format: uint16
+      description: ID of the shard to retrieve information for
+  responses:
+    '200':
+      description: Successful service peers response
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "./schemas/apitypes.yaml#/WakuPeer"
+    '400':
+      description: Invalid argument.
+      content:
+        text/plain:
+          type: string
+    '500':
+      description: Internal server error.
+      content:
+        text/plain:
+          type: string

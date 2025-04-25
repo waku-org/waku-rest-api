@@ -1,0 +1,20 @@
+get:
+  tags:
+    - admin
+  summary: Get peers of mesh bx subscribed shards
+  description: Returns information about relay peers in node's direct mesh, grouped by shards.
+  operationId: getMeshPeers
+  responses:
+    '200':
+      description: List of mesh peers grouped by shard
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "./schemas/apitypes.yaml#/PeersOfShard"
+    '500':
+      description: Internal server error.
+      content:
+        text/plain:
+          type: string

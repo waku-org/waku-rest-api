@@ -36,7 +36,23 @@ paths:
   /version:
      $ref: "./debugapi_version.yaml"
   /admin/v1/peers:
-    $ref: "./adminapi.yaml"
+    $ref: "./adminapi_peers.yaml"
+  /admin/v1/peer/{peerId}:
+    $ref: "./adminapi_peer.yaml"
+  /admin/v1/peers/service:
+    $ref: "./adminapi_peers_service.yaml"
+  /admin/v1/peers/connected:
+    $ref: "./adminapi_peers_connected.yaml"
+  /admin/v1/peers/connected/on/{shardId}:
+    $ref: "./adminapi_peers_connected_on_shard.yaml"  
+  /admin/v1/peers/relay:
+    $ref: "./adminapi_peers_relay.yaml"
+  /admin/v1/peers/relay/on/{shardId}:
+    $ref: "./adminapi_peers_relay_on_shard.yaml"
+  /admin/v1/peers/mesh:
+    $ref: "./adminapi_peers_mesh.yaml"
+  /admin/v1/peers/mesh/on/{shardId}:
+    $ref: "./adminapi_peers_mesh_on_shard.yaml"
   /admin/v1/filter/subscriptions:
     $ref: "./adminapi_filter.yaml"
   /debug/v1/info:

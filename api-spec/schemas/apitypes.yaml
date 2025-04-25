@@ -3,6 +3,9 @@ WakuPeer:
   required:
     - multiaddr
     - protocols
+    - shards
+    - agent
+    - connected
     - origin
   properties:
     multiaddr:
@@ -10,17 +13,37 @@ WakuPeer:
     protocols:
       type: array
       items:
-        type: object
-        required:
-          - protocol
-          - connected
-        properties:
-          protocol:
-            type: string
-          connected:
-            type: boolean
+        type: string
+    shards:
+      type: array
+      items:
+        type: integer
+        format: int32
+    connected:
+      type: string
+      enum:
+        - "NotConnected"
+        - "CannotConnect"
+        - "CanConnect"
+        - "Connected"
+    agent:
+      type: string
     origin:
       type: string
+    score:
+      type: number
+      format: double
+
+PeersOfShard:
+  type: object
+  properties:
+    shard:
+      type: integer
+      format: int32
+    peers:
+      type: array
+      items:
+        $ref: "#/WakuPeer"
 
 WakuInfo:
   type: object
@@ -42,7 +65,7 @@ ContentTopic:
 FilterGetMessagesResponse:
   type: array
   items:
-    $ref: '#/WakuMessage'
+    $ref: "#/WakuMessage"
 
 FilterSubscribeRequest:
   type: object
@@ -52,13 +75,13 @@ FilterSubscribeRequest:
     contentFilters:
       type: array
       items:
-        $ref: '#/ContentTopic'
+        $ref: "#/ContentTopic"
     pubsubTopic:
       $ref: "#/PubsubTopic"
   required:
-    -  requestId
-    -  contentFilters
-    -  pubsubTopic
+    - requestId
+    - contentFilters
+    - pubsubTopic
 
 FilterUnsubscribeRequest:
   type: object
@@ -68,12 +91,12 @@ FilterUnsubscribeRequest:
     contentFilters:
       type: array
       items:
-        $ref: '#/ContentTopic'
+        $ref: "#/ContentTopic"
     pubsubTopic:
       $ref: "#/PubsubTopic"
   required:
-    -  requestId
-    -  contentFilters
+    - requestId
+    - contentFilters
 
 FilterUnsubscribeAllRequest:
   type: object
@@ -81,7 +104,7 @@ FilterUnsubscribeAllRequest:
     requestId:
       type: string
   required:
-    -  requestId
+    - requestId
 
 FilterSubscriptionResponse:
   type: object
@@ -91,7 +114,7 @@ FilterSubscriptionResponse:
     statusDesc:
       type: string
   required:
-    -  requestId
+    - requestId
 
 WakuMessage:
   type: object
@@ -100,7 +123,7 @@ WakuMessage:
       type: string
       format: byte
     contentTopic:
-      $ref: '#/ContentTopic'
+      $ref: "#/ContentTopic"
     version:
       type: integer
       format: int32
@@ -115,9 +138,9 @@ WakuMessage:
       type: string
       format: byte
   required:
-      - payload
-      - contentTopic
-      - timestamp
+    - payload
+    - contentTopic
+    - timestamp
 
 WakuMessageKeyValue:
   type: object
@@ -125,7 +148,7 @@ WakuMessageKeyValue:
     message_hash:
       type: string
     message:
-      $ref: '#/components/schemas/WakuMessage'
+      $ref: "#/components/schemas/WakuMessage"
   required:
     - message_hash
     - message
@@ -143,7 +166,7 @@ StoreQueryResponse:
     messages:
       type: array
       items:
-        $ref: '#/components/schemas/WakuMessageKeyValue'
+        $ref: "#/components/schemas/WakuMessageKeyValue"
     paginationCursor:
       type: string
   required:
@@ -156,22 +179,21 @@ PushRequest:
   type: object
   properties:
     pubsubTopic:
-      $ref: '#/PubsubTopic'
+      $ref: "#/PubsubTopic"
     message:
-      $ref: '#/WakuMessage'
+      $ref: "#/WakuMessage"
   required:
     - message
 
 PushResponse:
   type: object
   properties:
-    statusDesc: 
+    statusDesc:
       type: string
-    relayPeerCount: 
+    relayPeerCount:
       type: integer
       format: uint32
 
-    
 ## TODO: Check if it can be tunneled into the one WakuMessage structure
 ##       mainly because of Relay post message request can break in client code
 RelayWakuMessage:
@@ -181,7 +203,7 @@ RelayWakuMessage:
       type: string
       format: byte
     contentTopic:
-      $ref: '#/ContentTopic'
+      $ref: "#/ContentTopic"
     version:
       type: number
     timestamp:
@@ -197,10 +219,10 @@ RelayWakuMessage:
 RelayGetMessagesResponse:
   type: array
   items:
-    $ref: '#/RelayWakuMessage'
+    $ref: "#/RelayWakuMessage"
 
 RelayPostMessagesRequest:
-  $ref: '#/RelayWakuMessage'
+  $ref: "#/RelayWakuMessage"
 
 StoreResponse:
   type: object
@@ -208,9 +230,9 @@ StoreResponse:
     messages:
       type: array
       items:
-        $ref: '#/WakuMessage'
+        $ref: "#/WakuMessage"
     cursor:
-      $ref: '#/HistoryCursor'
+      $ref: "#/HistoryCursor"
     error_message:
       type: string
   required:
@@ -268,11 +290,11 @@ HealthReport:
   type: object
   properties:
     nodeHealth:
-      $ref: '#/HealthStatus'
+      $ref: "#/HealthStatus"
       description: Overall health status of the node
     protocolsHealth:
       type: array
       items:
         type: object
         additionalProperties:
-          $ref: '#/HealthStatus'
+          $ref: "#/HealthStatus"

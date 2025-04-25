@@ -1,0 +1,31 @@
+get:
+  tags:
+    - admin
+  summary: Get mesh peers by shard
+  description: Returns information about relay peers in node's direct mesh for a specific shard.
+  operationId: getMeshPeersByShard
+  parameters:
+    - in: path
+      name: shardId
+      required: true
+      schema:
+        type: integer
+        format: uint16
+      description: ID of the shard to retrieve information for
+  responses:
+    '200':
+      description: List of peers in the mesh of the shard in question
+      content:
+        application/json:
+          schema:
+            $ref: "./schemas/apitypes.yaml#/PeersOfShard"
+    '400':
+      description: Invalid argument.
+      content:
+        text/plain:
+          type: string
+    '500':
+      description: Internal server error.
+      content:
+        text/plain:
+          type: string

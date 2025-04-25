@@ -1,0 +1,30 @@
+get:
+  summary: Get peer info about a single peer
+  description: Retrieve information about a single peer.
+  operationId: getPeerInfo
+  tags:
+    - admin
+  parameters:
+    - in: path
+      name: peerId
+      required: true
+      schema:
+        type: string
+      description: ID of the peer to retrieve information for    
+  responses:
+    '200':
+      description: Information about a Waku v2 node.
+      content:
+        application/json:
+          schema:
+            $ref: "./schemas/apitypes.yaml#/WakuPeer"
+    '400':
+      description: Invalid argument.
+      content:
+        text/plain:
+          type: string
+    '500':
+      description: Internal server error.
+      content:
+        text/plain:
+          type: string
