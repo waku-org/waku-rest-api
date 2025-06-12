@@ -1,3 +1,25 @@
+WakuPeerStats:
+  type: object
+  properties:
+    grouping:
+      type: object
+      properties:
+        name:
+          title: string
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              value:
+                type: integer
+                format: int32
+    examples:
+      peer_statistics:
+        $ref: "./adminapi_peers_stats_example.json" 
+
 WakuPeer:
   type: object
   required:

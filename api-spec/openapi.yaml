@@ -35,6 +35,8 @@ paths:
      $ref: "./debugapi_info.yaml"
   /version:
      $ref: "./debugapi_version.yaml"
+  /admin/v1/log-level/{logLevel}:
+    $ref: "./adminapi_log_level.yaml"
   /admin/v1/peers:
     $ref: "./adminapi_peers.yaml"
   /admin/v1/peer/{peerId}:
@@ -53,6 +55,8 @@ paths:
     $ref: "./adminapi_peers_mesh.yaml"
   /admin/v1/peers/mesh/on/{shardId}:
     $ref: "./adminapi_peers_mesh_on_shard.yaml"
+  /admin/v1/peers/stats:
+    $ref: "./adminapi_peers_stats.yaml"
   /admin/v1/filter/subscriptions:
     $ref: "./adminapi_filter.yaml"
   /debug/v1/info:
