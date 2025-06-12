@@ -1,0 +1,34 @@
+post:
+  summary: Dynamic set log level on the node
+  description: Change the log level of a Waku v2 node.
+  operationId: setLogLevel
+  tags:
+    - admin
+  parameters:
+    - in: path
+      name: logLevel
+      required: true
+      schema:
+        type: string
+        enum:
+        - "TRACE"
+        - "DEBUG"
+        - "INFO"
+        - "NOTICE"
+        - "WARN"
+        - "ERROR"
+        - "FATAL"
+      description: New log level to set for the node.
+  responses:
+    '200':
+      description: New log level Successfully applied.
+    '400':
+      description: Invalid argument.
+      content:
+        text/plain:
+          type: string
+    '503':
+      description: Service unavailable - binary is not compiled with proper flag that enables this feature.
+      content:
+        text/plain:
+          type: string

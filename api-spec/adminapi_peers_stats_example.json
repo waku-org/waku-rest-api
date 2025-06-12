@@ -1,0 +1,44 @@
+{
+	"Sum": {
+		"Total peers": 12
+	},
+	"By Connectedness": {
+		"Connected": 10,
+		"NotConnected": 0,
+		"CannotConnect": 2,
+		"CanConnect": 0
+	},
+	"Relay peers": {
+		"0": 10,
+		"1": 10,
+		"5": 10,
+		"4": 10,
+		"6": 10,
+		"3": 10,
+		"7": 10,
+		"2": 10,
+		"Total relay peers": 8
+	},
+	"Mesh peers": {
+		"0": 4,
+		"1": 4,
+		"5": 4,
+		"4": 4,
+		"6": 4,
+		"3": 4,
+		"7": 4,
+		"2": 4,
+		"Total mesh peers": 8
+	},
+	"By Protocols": {
+		"/vac/waku/relay/2.0.0": 12,
+		"/vac/waku/filter-subscribe/2.0.0-beta1": 12,
+		"/vac/waku/filter-push/2.0.0-beta1": 6,
+		"/vac/waku/store-query/3.0.0": 12,
+		"/vac/waku/store/2.0.0-beta4": 10,
+		"/vac/waku/lightpush/3.0.0": 12,
+		"/vac/waku/lightpush/2.0.0-beta1": 10,
+		"/vac/waku/peer-exchange/2.0.0-alpha1": 0,
+		"/vac/waku/reconciliation/1.0.0": 0
+	}
+}

@@ -1,0 +1,14 @@
+get:
+  summary: Get statistics of available peers
+  description: Retrieve statistics of node's peer database in various grouping.
+  operationId: getPeerStats
+  tags:
+    - admin
+  responses:
+    '200':
+      description: Information about a Waku v2 node.
+      content:
+        application/json:
+          schema:
+            $ref: "./schemas/apitypes.yaml#/WakuPeerStats"
+
